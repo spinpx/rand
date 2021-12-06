@@ -43,6 +43,8 @@
 <span id="42">42</span>
 <span id="43">43</span>
 <span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
 </pre><pre class="rust"><code><span class="comment">// Copyright 2018 Developers of the Rand project.</span>
 <span class="comment">//</span>
 <span class="comment">// Licensed under the Apache License, Version 2.0 &lt;LICENSE-APACHE or</span>
@@ -83,9 +85,11 @@
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 
 <span class="kw">mod</span> <span class="ident">pcg128</span>;
+<span class="kw">mod</span> <span class="ident">pcg128cm</span>;
 <span class="kw">mod</span> <span class="ident">pcg64</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::pcg128</span>::{<span class="ident">Lcg128Xsl64</span>, <span class="ident">Mcg128Xsl64</span>, <span class="ident">Pcg64</span>, <span class="ident">Pcg64Mcg</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::pcg128cm</span>::{<span class="ident">Lcg128CmDxsm64</span>, <span class="ident">Pcg64Dxsm</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::pcg64</span>::{<span class="ident">Lcg64Xsh32</span>, <span class="ident">Pcg32</span>};
 </code></pre></div>
 </section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="rand_pcg" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (e2116acae 2021-12-05)" ></div>
