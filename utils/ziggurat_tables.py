@@ -40,6 +40,19 @@ TABLE_LEN = 256
 # f_inv = inverse of f
 def tables(r, v, f, f_inv):
     # compute the x_i
+    """Computes tables of x and f(x) values for a given function and its inverse.
+    
+    Args:
+        r (float): The initial value for x[1].
+        v (float): A constant used in the computation of x values.
+        f (callable): The function to be evaluated.
+        f_inv (callable): The inverse of the function f.
+    
+    Returns:
+        tuple: A tuple containing two lists:
+            - xvec (list of float): Table of x values.
+            - fvec (list of float): Table of f(x) values corresponding to xvec.
+    """
     xvec = [0]*(TABLE_LEN+1)
 
     xvec[0] = v / f(r)
@@ -59,6 +72,14 @@ def tables(r, v, f, f_inv):
 # Distributions
 # N(0, 1)
 def norm_f(x):
+    """Compute the standard normal probability density function.
+    
+    Args:
+        x (float): The input value for which to calculate the probability density.
+    
+    Returns:
+        float: The probability density at the given input value.
+    """
     return exp(-x*x/2.0)
 def norm_f_inv(y):
     return sqrt(-2.0*log(y))
@@ -86,6 +107,16 @@ EXP = tables(EXP_R, EXP_V,
 
 def render_static(name, type, value):
     # no space or
+    """Renders a static variable declaration in a specific format.
+    
+    Args:
+        name (str): The name of the static variable.
+        type (str): The data type of the static variable.
+        value (str): The value to be assigned to the static variable.
+    
+    Returns:
+        str: A formatted string representing a static variable declaration.
+    """
     return 'pub static %s: %s =%s;\n' % (name, type, value)
 
 # static `name`: [`type`, .. `len(values)`] =
@@ -93,6 +124,16 @@ def render_static(name, type, value):
 #      values[4], ..., values[7],
 #      ... ];
 def render_table(name, values):
+    """Renders a table of floating-point values with a given name.
+    
+    Args:
+        name (str): The name of the table to be rendered.
+        values (List[float]): A list of floating-point values to be rendered in the table.
+    
+    Returns:
+        str: A rendered string representation of the table, formatted as a static array.
+    
+    """
     rows = []
     # 4 values on each row
     for i in range(0, len(values), 4):
